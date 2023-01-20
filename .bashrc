@@ -77,24 +77,61 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-# some more ls aliases
+# Alias definitions.
+
+# ls aliases
 alias ll='ls -halF'
 alias la='ls -lh'
 alias l='ls -CF'
 alias mv='mv -i'
 alias cp='cp -i'
 alias rm='rm -i'
+
+# cd aliases
 alias '~'='cd ~'
 alias '..'='cd ..'
 alias '...'='cd ../..'
 alias '..4'='cd ../../..'
 alias '..5'='cd ../../../..'
+
 alias Downloads='cd /mnt/d/Downloads'
 alias Onedrive='cd /mnt/d/Onedrive'
 alias MounRiver='cd /mnt/c/MounRiver/MounRiver_Studio/workspace'
-alias nvimconfig='nvim ~/.config/nvim/init.vim'
+alias nvimcfg='nvim ~/.config/nvim/init.vim'
+alias vi='nvim'
+alias vim='nvim'
+alias src='source'
+
+# functions
+unzip() {
+	7z x "/mnt/d/Downloads/$1" "-o$2"
+}
+transcode_porn() {
+	if [$1 == "remux"]
+	then
+		ffmpeg -i "/mnt/d/Porn/$4.$2" -codec copy "/mnt/d/Porn/$4.$3"
+	fi
+}
+mk_dotfile() {
+	# assumes any dot{file/dir} is in root directory
+	# first argument is file(f) or dir(d), second argument is the dot{file/dir} name, not path to it
+	# consider improving it by not linking the whole .config dir but link all dirs inside respectively so that it is easier to find the config for the application you are looking for 
+	# not working yet
+	# make it so that if any command inside reports an error, don't execute any command following it.
+	if [$1 == 'f']
+	then
+		mv -i ~/$2 ~/.dotfiles
+		ln -s ~/.dotfiles/$2 ~/$2
+	fi
+	if [$1 == 'd']
+	then
+		mv -i ~/$2 ~/.dotfiles/$2
+		ln -s ~/.dotfiles/$2 ~/$2
+	fi
+}
 
 # Alias definitions.
+# !!! consider this
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
@@ -110,7 +147,25 @@ fi
 #    . /etc/bash_completion
 #fi
 
-neofetch
 set -o vi
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+red="\001$(tput setaf 1)\002"
+green="\001$(tput setaf 2)\002"
+yellow="\001$(tput setaf 3)\002"
+blue="\001$(tput setaf 4)\002"
+magenta="\001$(tput setaf 5)\002"
+cyan="\001$(tput setaf 6)\002"
+white="\001$(tput setaf 7)\002"
+reset="\001$(tput sgr0)\002"
+bold="\001$(tput bold)\002"
+dim="\001$(tput dim)\002"
+
+PS1="$green\u$dim$white at $reset$cyan\h"
+PS1+="$white in$yellow \w\n"
+PS1+="$dim$green[\t] $reset\$ "
+export BROWSER=wslview
+
+
+# export PS1="[${_BOLD}${_GREEN}\u${_RESET}${_RED}@${_MAGENTA}\h: ${_CYAN}\w${_RESET}] ${_BOLD}\$ ${_RESET}"
