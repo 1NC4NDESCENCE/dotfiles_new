@@ -1,0 +1,5 @@
+p words
+print words
+print(words)
+p env
+print(env)
