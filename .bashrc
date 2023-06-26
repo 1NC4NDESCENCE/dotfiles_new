@@ -101,6 +101,12 @@ alias nvimcfg='nvim ~/.config/nvim/init.vim'
 alias vi='nvim'
 alias vim='nvim'
 alias src='source'
+alias grep='grep -rnw'
+alias gs='git status'
+alias gaa='git add .'
+alias gbr='git branch'
+alias gl='git log'
+alias gc='git commit'
 
 # functions
 unzip() {
@@ -169,3 +175,6 @@ export BROWSER=wslview
 
 
 # export PS1="[${_BOLD}${_GREEN}\u${_RESET}${_RED}@${_MAGENTA}\h: ${_CYAN}\w${_RESET}] ${_BOLD}\$ ${_RESET}"
+export NEMU_HOME=/home/jiao/ics2022/nemu
+export AM_HOME=/home/jiao/ics2022/abstract-machine
+export PATH="/usr/lib/ccache:$PATH"
