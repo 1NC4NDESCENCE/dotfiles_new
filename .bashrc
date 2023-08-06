@@ -102,11 +102,17 @@ alias vi='nvim'
 alias vim='nvim'
 alias src='source'
 alias grep='grep -rnw'
+
+# git aliases
 alias gs='git status'
 alias gaa='git add .'
 alias gbr='git branch'
 alias gl='git log'
 alias gc='git commit'
+
+# tmux aliases
+alias tma='tmux attach-session -t'
+alias tmk='tmux kill-session -t'
 
 # functions
 unzip() {
@@ -177,4 +183,4 @@ export BROWSER=wslview
 # export PS1="[${_BOLD}${_GREEN}\u${_RESET}${_RED}@${_MAGENTA}\h: ${_CYAN}\w${_RESET}] ${_BOLD}\$ ${_RESET}"
 export NEMU_HOME=/home/jiao/ics2022/nemu
 export AM_HOME=/home/jiao/ics2022/abstract-machine
-export PATH="/usr/lib/ccache:$PATH"
+export PATH="/usr/lib/ccache:/home/jiao/.local/bin:$PATH"

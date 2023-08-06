@@ -1,0 +1,14 @@
+window:
+  dimensions:
+    columns: 200
+    lines: 50
+
+font:
+  normal:
+    family: Cascadia Code
+    style: Regular
+
+  size: 12
+
+import:
+  - ~/.config/alacritty/themes/afterglow.yaml
