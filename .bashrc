@@ -105,6 +105,9 @@ alias grep='grep -rnw'
 
 # git aliases
 alias gs='git status'
+alias ga='git add'
+alias gp='git push'
+alias gr='git remote -v'
 alias gaa='git add .'
 alias gbr='git branch'
 alias gl='git log'
