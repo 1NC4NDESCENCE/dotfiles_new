@@ -94,10 +94,9 @@ alias '...'='cd ../..'
 alias '..4'='cd ../../..'
 alias '..5'='cd ../../../..'
 
-alias Downloads='cd /mnt/d/Downloads'
-alias Onedrive='cd /mnt/d/Onedrive'
-alias MounRiver='cd /mnt/c/MounRiver/MounRiver_Studio/workspace'
-alias nvimcfg='nvim ~/.config/nvim/init.vim'
+alias dld='cd ~/Downloads'
+alias clash="bash /usr/share/clash/clash.sh"
+alias vimrc='nvim ~/.config/nvim/init.vim'
 alias vi='nvim'
 alias vim='nvim'
 alias src='source'
@@ -105,13 +104,14 @@ alias grep='grep -rnw'
 
 # git aliases
 alias gs='git status'
-alias ga='git add'
+alias ga='git add; git status'
 alias gp='git push'
 alias gr='git remote -v'
 alias gaa='git add .'
 alias gbr='git branch'
 alias gl='git log'
 alias gc='git commit'
+alias gd='git diff'
 
 # tmux aliases
 alias tma='tmux attach-session -t'
